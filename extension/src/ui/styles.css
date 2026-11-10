@@ -1,0 +1,166 @@
+:root {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #cbd5e1;
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #1e3a8a;
+  --primary-hover: #1e40af;
+  --danger: #991b1b;
+  --warning: #b45309;
+  --ok: #166534;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  min-width: 440px;
+}
+
+.nexjus-shell {
+  padding: 12px;
+}
+
+.nexjus-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.nexjus-header h1 {
+  font-size: 16px;
+  margin: 0;
+  color: var(--primary);
+}
+
+.nexjus-subtitle {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.nexjus-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.nexjus-tab {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nexjus-tab.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.nexjus-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.nexjus-card h2 {
+  font-size: 13px;
+  margin: 0 0 8px 0;
+}
+
+.nexjus-form-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.nexjus-form-row input,
+.nexjus-form-row select {
+  flex: 1;
+  min-width: 110px;
+  padding: 5px 7px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.nexjus-btn {
+  background: var(--primary);
+  color: #ffffff;
+  border: 1px solid var(--primary);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.nexjus-btn.secondary {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.nexjus-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nexjus-list li {
+  border-top: 1px solid var(--border);
+  padding: 6px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.badge.vencido,
+.badge.hoje {
+  background: #fee2e2;
+  color: var(--danger);
+}
+
+.badge.urgente {
+  background: #fef3c7;
+  color: var(--warning);
+}
+
+.badge.no_prazo,
+.badge.concluido {
+  background: #dcfce7;
+  color: var(--ok);
+}
+
+.nexjus-notice {
+  font-size: 11px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+  margin-top: 8px;
+}
