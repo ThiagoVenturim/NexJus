@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "NexJus - Acompanhamento de NP e Processos",
+  "version": "0.1.0",
+  "description": "Gestao local de clientes, processos, veiculos, calculo de prazos CPC/CTB, leitura de pagina aberta sem burlar captcha e consulta DataJud.",
+  "permissions": [
+    "storage",
+    "alarms",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://api-publica.datajud.cnj.jus.br/*"
+  ],
+  "action": {
+    "default_title": "NexJus - Acompanhamento Juridico",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.jus.br/*",
+        "*://portalservicos.senatran.serpro.gov.br/*",
+        "*://*.detran.sp.gov.br/*",
+        "*://*.detran.rj.gov.br/*",
+        "*://*.detran.mg.gov.br/*",
+        "*://*.detran.pr.gov.br/*",
+        "*://*.detran.rs.gov.br/*",
+        "*://*.detran.sc.gov.br/*",
+        "*://*.detran.ba.gov.br/*"
+      ],
+      "js": ["contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
