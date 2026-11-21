@@ -17,4 +17,10 @@ system. This tool does not replace the court, Detran or the issuing authority.
 Claude: CPC/traffic code deadline calculation with an audit trail, deadline lists, agenda, clients with
 pending items, recording case movements and DataJud lookups. See [mcp-server/README.md](mcp-server/README.md).
 
+## Claude skills and agents
+
+`skills/` holds Claude skills and subagents for day-to-day legal work (deadlines, daily triage, case and
+filing summaries, traffic defense and petition drafts, client reports, document checklists and sourced
+case-law research), wired to the MCP server, plus an installer. See [skills/README.md](skills/README.md).
+
 Portuguese documentation comes first: [README.md](README.md).

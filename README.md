@@ -27,4 +27,11 @@ A pasta `mcp-server/` traz um servidor MCP local (stdio) que expoe prazos e proc
 como o Claude: calculo de prazos CPC/CTB com trilha de auditoria, listagens de prazos, agenda, clientes
 com pendencias, registro de andamentos e consultas ao DataJud. Veja [mcp-server/README.md](mcp-server/README.md).
 
+## Skills e agentes para o Claude
+
+A pasta `skills/` traz skills e subagentes do Claude para o dia a dia do advogado (prazos, triagem diaria,
+resumo de processo e de peca, minutas de defesa de transito e de peticao, relatorio ao cliente, checklist
+de documentos e pesquisa de jurisprudencia com fonte), integrados ao servidor MCP, e um instalador.
+Veja [skills/README.md](skills/README.md).
+
 English version: [README.en.md](README.en.md).
