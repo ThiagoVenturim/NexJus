@@ -8,9 +8,13 @@ select = ["E", "F", "W", "I", "B", "UP", "S"]
 # S105/S106: names of environment variables that hold secrets are not secrets.
 ignore = ["S101", "S105", "S106"]
 
+[tool.ruff.lint.isort]
+known-first-party = ["nexjus_backend", "conftest"]
+
 [tool.ruff.lint.per-file-ignores]
 "**/tests/**" = ["S", "B"]
 "scripts/**" = ["S603", "S607"]
 
 [tool.pytest.ini_options]
 addopts = "-q"
+testpaths = ["app/tests"]
