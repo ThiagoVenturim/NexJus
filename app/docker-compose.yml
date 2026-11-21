@@ -1,29 +1,47 @@
+# Postgres opcional. As portas ficam presas a 127.0.0.1: nada fica exposto na rede local.
+# Uso: cp .env.example .env, ajuste as senhas e rode `docker compose up -d --build`.
 services:
   db:
-    image: postgres:15-alpine
-    container_name: db_acompanhamento_np
-    restart: always
+    image: postgres:16-alpine
+    restart: unless-stopped
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER:?defina POSTGRES_USER no .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no .env}
+      POSTGRES_DB: ${POSTGRES_DB:?defina POSTGRES_DB no .env}
     ports:
-      - "${POSTGRES_PORT}:5432" # Mapeia a porta do .env para a porta 5432 padrão do Postgres interno
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   web:
     build: .
-    container_name: app_acompanhamento_np
-    restart: always
-    ports:
-      - "${FASTAPI_PORT}:8000" # Mapeia a porta do .env (8000) para a porta 8000 que o uvicorn expõe
-    volumes:
-      - .:/app
+    restart: unless-stopped
+    env_file: .env
     environment:
-      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      NEXJUS_DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    ports:
+      - "127.0.0.1:${FASTAPI_PORT:-8000}:8000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+
+  scheduler:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NEXJUS_DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    command: ["nexjus-backend", "scheduler"]
+    healthcheck:
+      disable: true
+    depends_on:
+      web:
+        condition: service_healthy
 
 volumes:
   postgres_data:
