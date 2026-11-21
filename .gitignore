@@ -14,6 +14,7 @@ build/
 # Node and extension builds
 node_modules/
 dist/
+*.tsbuildinfo
 *.zip
 *.crx
 *.pem
@@ -27,6 +28,7 @@ coverage/
 *.db
 exports/
 *.local.csv
+nexjus-data*.json
 
 # Editors and OS
 .vscode/
