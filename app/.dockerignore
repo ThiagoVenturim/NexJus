@@ -5,5 +5,12 @@ __pycache__/
 .git
 .gitignore
 .env
+.env.*
+!.env.example
 .venv
 venv/
+.pytest_cache
+.ruff_cache
+tests/
+*.db
+*.sqlite
