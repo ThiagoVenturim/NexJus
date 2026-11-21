@@ -28,6 +28,7 @@ coverage/
 *.db
 exports/
 *.local.csv
+nexjus-data*.json
 
 # Editors and OS
 .vscode/

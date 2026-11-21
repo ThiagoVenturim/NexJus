@@ -21,4 +21,10 @@ sem acao explicita do usuario.
 A pasta `app/` traz um servidor FastAPI opcional para sincronizar os dados entre maquinas, montar a
 agenda diaria de prazos e enviar alertas por e-mail. Veja [app/README.md](app/README.md).
 
+## Servidor MCP local
+
+A pasta `mcp-server/` traz um servidor MCP local (stdio) que expoe prazos e processos a um cliente MCP,
+como o Claude: calculo de prazos CPC/CTB com trilha de auditoria, listagens de prazos, agenda, clientes
+com pendencias, registro de andamentos e consultas ao DataJud. Veja [mcp-server/README.md](mcp-server/README.md).
+
 English version: [README.en.md](README.en.md).

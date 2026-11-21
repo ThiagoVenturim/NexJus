@@ -11,4 +11,10 @@ Status: under construction.
 Every computed deadline and every generated draft must be checked by the lawyer against the official
 system. This tool does not replace the court, Detran or the issuing authority.
 
+## Local MCP server
+
+`mcp-server/` holds a local MCP server (stdio) that exposes deadlines and cases to an MCP client such as
+Claude: CPC/traffic code deadline calculation with an audit trail, deadline lists, agenda, clients with
+pending items, recording case movements and DataJud lookups. See [mcp-server/README.md](mcp-server/README.md).
+
 Portuguese documentation comes first: [README.md](README.md).
