@@ -6,6 +6,14 @@ servidor MCP local e agentes/skills para o Claude.
 
 Status: em construcao.
 
+## Documentacao
+
+- [Instalacao](docs/INSTALACAO.md): extensao, servidor MCP, skills e backend opcional.
+- [LGPD e privacidade](docs/LGPD.md): onde os dados ficam, o que sai da maquina, anonimizacao e modelo local.
+- [Regras de prazo](docs/PRAZOS.md): como o motor conta CPC e CTB e como adicionar tribunal, comarca ou Detran.
+- [Uso com o Claude](docs/USO-COM-CLAUDE.md): servidor MCP, skills, agentes e exemplos de pedidos.
+- [Referencias](docs/REFERENCIAS.md): projetos parecidos e diferencial.
+
 ## Aviso
 
 Todo prazo calculado e toda minuta gerada devem ser conferidos pelo advogado no sistema oficial.
@@ -14,7 +22,7 @@ Esta ferramenta nao substitui a consulta ao tribunal, ao Detran ou ao orgao autu
 ## LGPD
 
 Os dados ficam no computador do usuario por padrao. Nenhum dado de cliente e enviado a terceiros
-sem acao explicita do usuario.
+sem acao explicita do usuario. Detalhes em [docs/LGPD.md](docs/LGPD.md).
 
 ## Backend opcional
 

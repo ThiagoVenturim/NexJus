@@ -6,10 +6,27 @@ agents and skills.
 
 Status: under construction.
 
+## Documentation
+
+- [Installation](docs/INSTALLATION.en.md): extension, MCP server, skills and optional backend.
+- [LGPD and privacy](docs/PRIVACY.en.md): where data lives, what leaves the machine, anonymisation and local models.
+- [Deadline rules](docs/DEADLINES.en.md): how the engine counts CPC and CTB periods and how to add a court, district or Detran.
+- [Using with Claude](docs/CLAUDE.en.md): MCP server, skills, agents and example requests.
+
 ## Disclaimer
 
 Every computed deadline and every generated draft must be checked by the lawyer against the official
 system. This tool does not replace the court, Detran or the issuing authority.
+
+## LGPD
+
+Data stays on the user's computer by default. No client data is sent to third parties without an explicit
+user action. Details in [docs/PRIVACY.en.md](docs/PRIVACY.en.md).
+
+## Optional backend
+
+`app/` holds an optional FastAPI server to sync data between machines, build the daily deadline agenda and
+send e-mail alerts. See [app/README.md](app/README.md).
 
 ## Local MCP server
 
