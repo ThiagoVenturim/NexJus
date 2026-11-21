@@ -1,4 +1,4 @@
-# Repository-wide tooling. Python packages live in their own folders (app/, mcp/).
+# Repository-wide tooling. Python packages live in their own folders (app/, mcp-server/).
 [tool.ruff]
 line-length = 120
 target-version = "py311"
@@ -9,7 +9,7 @@ select = ["E", "F", "W", "I", "B", "UP", "S"]
 ignore = ["S101", "S105", "S106"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["nexjus_backend", "conftest"]
+known-first-party = ["nexjus_backend", "nexjus_mcp", "conftest"]
 
 [tool.ruff.lint.per-file-ignores]
 "**/tests/**" = ["S", "B"]
@@ -17,4 +17,4 @@ known-first-party = ["nexjus_backend", "conftest"]
 
 [tool.pytest.ini_options]
 addopts = "-q"
-testpaths = ["app/tests"]
+testpaths = ["app/tests", "mcp-server/tests"]
