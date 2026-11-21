@@ -44,7 +44,10 @@ def test_list_deadlines_status_e_privacidade(tmp_path):
 
 def test_list_deadlines_filtros(tmp_path):
     service, _, _ = make_service(tmp_path)
-    assert [p["id"] for p in service.list_deadlines(status=["vencido", "hoje"])["prazos"]] == ["prz-vencido", "prz-hoje"]
+    assert [p["id"] for p in service.list_deadlines(status=["vencido", "hoje"])["prazos"]] == [
+        "prz-vencido",
+        "prz-hoje",
+    ]
     assert [p["id"] for p in service.list_deadlines(status=["concluido"])["prazos"]] == ["prz-feito"]
     assert {p["id"] for p in service.list_deadlines(processo="proc-2")["prazos"]} == {"prz-urgente", "prz-semana"}
     assert {p["id"] for p in service.list_deadlines(processo=limpar_digitos(NUMERO_1))["prazos"]} == {
@@ -217,9 +220,13 @@ def test_generate_agenda_backend(tmp_path):
             json={
                 "hoje": "2026-03-12",
                 "dias": 7,
-                "vencidos": [{"id": "prz-vencido", "due_date": "2026-03-10", "dias_restantes": -2, "status": "vencido"}],
+                "vencidos": [
+                    {"id": "prz-vencido", "due_date": "2026-03-10", "dias_restantes": -2, "status": "vencido"}
+                ],
                 "vencendo_hoje": [],
-                "urgentes": [{"id": "so-no-backend", "due_date": "2026-03-13", "dias_restantes": 1, "status": "urgente"}],
+                "urgentes": [
+                    {"id": "so-no-backend", "due_date": "2026-03-13", "dias_restantes": 1, "status": "urgente"}
+                ],
                 "proximos": [],
                 "total_criticos": 2,
             },

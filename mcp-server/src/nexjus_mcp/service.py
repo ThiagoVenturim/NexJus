@@ -491,8 +491,11 @@ class NexJusService:
                     if not isinstance(entrada, dict):
                         continue
                     local = por_id.get(str(entrada.get("id")))
-                    item = dict(local) if local else {"id": entrada.get("id"), "titulo": "", "processo": None,
-                                                     "cliente": None}
+                    item = (
+                        dict(local)
+                        if local
+                        else {"id": entrada.get("id"), "titulo": "", "processo": None, "cliente": None}
+                    )
                     item["data_vencimento"] = str(entrada.get("due_date") or item.get("data_vencimento", ""))
                     item["dias_restantes"] = entrada.get("dias_restantes", item.get("dias_restantes"))
                     item["status"] = status

@@ -80,7 +80,11 @@ def test_feriado_local_entra_na_contagem():
     locais = [FeriadoLocal(data="2026-03-10", nome="Feriado municipal", uf="SP", municipio="Sao Paulo")]
     sem = calcular_prazo(regra="cpc_5", data_publicacao_ou_notificacao="2026-03-06", uf="SP")
     com = calcular_prazo(
-        regra="cpc_5", data_publicacao_ou_notificacao="2026-03-06", uf="SP", municipio="Sao Paulo", feriados_locais=locais
+        regra="cpc_5",
+        data_publicacao_ou_notificacao="2026-03-06",
+        uf="SP",
+        municipio="Sao Paulo",
+        feriados_locais=locais,
     )
     assert sem.data_vencimento == "2026-03-13"
     assert com.data_vencimento == "2026-03-16"
@@ -105,7 +109,10 @@ def test_auditoria_e_consistente_com_o_resultado():
         ({"regra": "cpc_5", "data_publicacao_ou_notificacao": "2026-02-30", "uf": "SP"}, "inexistente"),
         ({"regra": "cpc_5", "data_publicacao_ou_notificacao": "06/03/2026", "uf": "SP"}, "YYYY-MM-DD"),
         ({"regra": "cpc_5", "data_publicacao_ou_notificacao": "2026-03-06", "uf": "XX"}, "UF"),
-        ({"regra": "cpc_custom", "data_publicacao_ou_notificacao": "2026-03-06", "uf": "SP", "dias_prazo": 0}, "inteiro"),
+        (
+            {"regra": "cpc_custom", "data_publicacao_ou_notificacao": "2026-03-06", "uf": "SP", "dias_prazo": 0},
+            "inteiro",
+        ),
     ],
 )
 def test_entradas_invalidas(kwargs, mensagem):
